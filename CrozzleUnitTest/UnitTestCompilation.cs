@@ -104,7 +104,7 @@ namespace CrozzleUnitTest
         }
 
         [TestMethod]
-        public void CrozzleMap_GroupCout_FalseResult()
+        public void CrozzleMap_GroupCount_FalseResult()
         {
             // ...
         }
@@ -112,7 +112,16 @@ namespace CrozzleUnitTest
         [TestMethod]
         public void Configuration_TryParse_TrueResult()
         {
-            // ...
+            /// Arrange.
+            Configuration aConfig;
+            String path = @"..\..\Resources\Test1.cfg";
+            Boolean result;
+
+            /// Act.
+            result = Configuration.TryParse(path, out aConfig);
+
+            /// Assert.
+            Assert.IsTrue(result);
         }
 
         [TestMethod]

@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\Test1.cfg" />
+    <None Include="Resources\Test1.czl" />
+    <None Include="Resources\Test1.seq" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrozzleApplication\CrozzleFormApplication.csproj">
