@@ -118,21 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlphabeticError" xml:space="preserve">
-    <value>code 9004: word ({0}) is not alphabetic</value>
+    <value>code 9005: word ({0}) is not alphabetic</value>
   </data>
   <data name="BlankFieldError" xml:space="preserve">
-    <value>code 9002: word data ({0}) is missing data in field {1}</value>
+    <value>code 9003: word data ({0}) is missing data in field {1}</value>
   </data>
   <data name="FieldCountError" xml:space="preserve">
-    <value>code 9001: {0} field{1} in word data {2}, instead of 2</value>
+    <value>code 9001: {0} field{1} in word data {2}, expected 2</value>
   </data>
   <data name="MissingWordError" xml:space="preserve">
-    <value>code 9003: word ({0}) is not in the word list</value>
+    <value>code 9004: word ({0}) is not in the word list</value>
+  </data>
+  <data name="SeqOrLocFieldMissingError" xml:space="preserve">
+    <value>code 9002: word data({0}) is missing its SEQUENCE or LOCATION field.</value>
   </data>
   <data name="SequencePositionIncompleteError" xml:space="preserve">
-    <value>code 9005: location for word ({0}) not assigned 2 number values</value>
+    <value>code 9006: location for word ({0}) expected 2 number values</value>
   </data>
   <data name="SequencePositionInvalidError" xml:space="preserve">
-    <value> code 9006: a value in location for word ({0}) is not a number value</value>
+    <value>code 9007: a value in location for word ({0}) expected a number value</value>
   </data>
 </root>

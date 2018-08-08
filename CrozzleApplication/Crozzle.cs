@@ -327,7 +327,7 @@ namespace CrozzleApplication
             int score = 0;
 
             // Increase the score for each word.
-            score += CrozzleSequences.Count * Configuration.PointsPerWord;
+            CrozzleSequences.UsedSequences().ForEach(used => score += WordList.List.Where(current => current.Sequence == used.Letters).First().Score);
 
             // Increase the score for intersecting letters.
             List<Char> intersectingLetters = CrozzleSequences.GetIntersectingLetters();

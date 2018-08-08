@@ -19,7 +19,7 @@ namespace CrozzleApplication {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ConfigurationErrors {
@@ -93,6 +93,15 @@ namespace CrozzleApplication {
         internal static string IntegerError {
             get {
                 return ResourceManager.GetString("IntegerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to code 1011: the value of {0} is {1} which is lower than the counterpart minimum value of {2}.
+        /// </summary>
+        internal static string MaxDupeLowerThanMinError {
+            get {
+                return ResourceManager.GetString("MaxDupeLowerThanMinError", resourceCulture);
             }
         }
         

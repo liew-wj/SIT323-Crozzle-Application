@@ -129,6 +129,9 @@
   <data name="IntegerError" xml:space="preserve">
     <value>code 1002: key-value pair ({0}), integer is {1}</value>
   </data>
+  <data name="MaxDupeLowerThanMinError" xml:space="preserve">
+    <value>code 1011: the value of {0} is {1} which is lower than the counterpart minimum value of {2}</value>
+  </data>
   <data name="MinGreaterThanMaxError" xml:space="preserve">
     <value>code 1010: the value of {0} is {1} which is greater than the counterpart maximum value of {2}</value>
   </data>

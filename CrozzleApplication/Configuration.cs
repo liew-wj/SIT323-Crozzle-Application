@@ -12,6 +12,8 @@ namespace CrozzleApplication
         public static String allowedCharacters = @"^[a-zA-Z]+$";
         public static String allowedBooleans = @"^(true|false)$";
         private static readonly Char[] PointSeparators = new Char[] { ',' };
+
+        private static String DefaultLogFileName = "log.txt";
         #endregion
 
         #region properties - errors
@@ -218,7 +220,8 @@ namespace CrozzleApplication
                                         aConfiguration.LogFileName = aItem.KeyValue.Value.Trim();
                                         if (Validator.IsDelimited(aConfiguration.LogFileName, Crozzle.StringDelimiters))
                                         {
-                                            aConfiguration.LogFileName = aConfiguration.LogFileName.Trim(Crozzle.StringDelimiters);
+                                            String value = aConfiguration.LogFileName.Trim(Crozzle.StringDelimiters);
+                                            aConfiguration.LogFileName = (!String.IsNullOrEmpty(value)) ? value : DefaultLogFileName;
                                             if (!Validator.IsFilename(aConfiguration.LogFileName))
                                                 Errors.Add(String.Format(ConfigurationErrors.ValueError, aItem.KeyValue.OriginalKeyValue, Validator.Errors[0]));
                                         }
@@ -457,7 +460,7 @@ namespace CrozzleApplication
                                         if (Validator.IsInt32(aItem.KeyValue.Value.Trim(), out minimum))
                                         {
                                             aConfiguration.MinimumNumberOfTheSameWord = minimum;
-                                            if (!Validator.TryRange(minimum, 1, Int32.MaxValue))
+                                            if (!Validator.TryRange(minimum, 0, Int32.MaxValue))
                                                 Errors.Add(String.Format(ConfigurationErrors.IntegerError, aItem.KeyValue.OriginalKeyValue, Validator.Errors[0]));
                                         }
                                         else
@@ -469,7 +472,7 @@ namespace CrozzleApplication
                                         if (Validator.IsInt32(aItem.KeyValue.Value.Trim(), out maximum))
                                         {
                                             aConfiguration.MaximumNumberOfTheSameWord = maximum;
-                                            if (!Validator.TryRange(maximum, 1, Int32.MaxValue))
+                                            if (!Validator.TryRange(maximum, 0, Int32.MaxValue))
                                                 Errors.Add(String.Format(ConfigurationErrors.IntegerError, aItem.KeyValue.OriginalKeyValue, Validator.Errors[0]));
                                         }
                                         else
@@ -600,9 +603,9 @@ namespace CrozzleApplication
                             aConfiguration.MinimumIntersectionsInVerticalWords, aConfiguration.MaximumIntersectionsInVerticalWords));
 
                 if (ActualKeys.Contains("DUPLICATE-SEQUENCES-MINIMUM") && ActualKeys.Contains("DUPLICATE-SEQUENCES-MAXIMUM"))
-                    if (aConfiguration.MinimumNumberOfTheSameWord > aConfiguration.MaximumNumberOfTheSameWord)
-                        Errors.Add(String.Format(ConfigurationErrors.MinGreaterThanMaxError, "DUPLICATE-SEQUENCES-MINIMUM",
-                            aConfiguration.MinimumNumberOfTheSameWord, aConfiguration.MaximumNumberOfTheSameWord));
+                    if (aConfiguration.MaximumNumberOfTheSameWord < aConfiguration.MinimumNumberOfTheSameWord)
+                        Errors.Add(String.Format(ConfigurationErrors.MaxDupeLowerThanMinError, "DUPLICATE-SEQUENCES-MAXIMUM",
+                            aConfiguration.MaximumNumberOfTheSameWord, aConfiguration.MaximumNumberOfTheSameWord));
 
                 if (ActualKeys.Contains("VALID-GROUPS-MINIMUM") && ActualKeys.Contains("VALID-GROUPS-MAXIMUM"))
                     if (aConfiguration.MinimumNumberOfGroups > aConfiguration.MaximumNumberOfGroups)

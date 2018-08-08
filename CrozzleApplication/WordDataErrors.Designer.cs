@@ -61,7 +61,7 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to code 9004: word ({0}) is not alphabetic.
+        ///   Looks up a localized string similar to code 9005: word ({0}) is not alphabetic.
         /// </summary>
         internal static string AlphabeticError {
             get {
@@ -70,7 +70,7 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to code 9002: word data ({0}) is missing data in field {1}.
+        ///   Looks up a localized string similar to code 9003: word data ({0}) is missing data in field {1}.
         /// </summary>
         internal static string BlankFieldError {
             get {
@@ -79,7 +79,7 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to code 9001: {0} field{1} in word data {2}, instead of 2.
+        ///   Looks up a localized string similar to code 9001: {0} field{1} in word data {2}, expected 2.
         /// </summary>
         internal static string FieldCountError {
             get {
@@ -88,7 +88,7 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to code 9003: word ({0}) is not in the word list.
+        ///   Looks up a localized string similar to code 9004: word ({0}) is not in the word list.
         /// </summary>
         internal static string MissingWordError {
             get {
@@ -97,7 +97,16 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to code 9005: location for word ({0}) not assigned 2 number values.
+        ///   Looks up a localized string similar to code 9002: word data({0}) is missing its SEQUENCE or LOCATION field..
+        /// </summary>
+        internal static string SeqOrLocFieldMissingError {
+            get {
+                return ResourceManager.GetString("SeqOrLocFieldMissingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to code 9006: location for word ({0}) expected 2 number values.
         /// </summary>
         internal static string SequencePositionIncompleteError {
             get {
@@ -106,7 +115,7 @@ namespace CrozzleApplication {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  code 9006: a value in location for word ({0}) is not a number value.
+        ///   Looks up a localized string similar to code 9007: a value in location for word ({0}) expected a number value.
         /// </summary>
         internal static string SequencePositionInvalidError {
             get {

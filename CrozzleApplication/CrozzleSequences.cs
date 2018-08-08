@@ -361,5 +361,13 @@ namespace CrozzleApplication
                 ErrorMessages.Add(String.Format(CrozzleErrors.ConnectivityError, count, lowerLimit, upperLimit));
         }
         #endregion
+
+        #region return sequences as list
+        public List<WordData> UsedSequences()
+        {
+            /// merge both horizontal sequences and vertical sequences to output a single list of word data.
+            return HorizontalSequences.Concat(VerticalSequences).ToList();
+        }
+        #endregion
     }
 }
