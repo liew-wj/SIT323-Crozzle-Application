@@ -91,14 +91,14 @@
             this.validateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crozzleToolStripMenuItem});
             this.validateToolStripMenuItem.Name = "validateToolStripMenuItem";
-            this.validateToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.validateToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.validateToolStripMenuItem.Text = "Validate";
             // 
             // crozzleToolStripMenuItem
             // 
             this.crozzleToolStripMenuItem.Enabled = false;
             this.crozzleToolStripMenuItem.Name = "crozzleToolStripMenuItem";
-            this.crozzleToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.crozzleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crozzleToolStripMenuItem.Text = "Crozzle";
             this.crozzleToolStripMenuItem.Click += new System.EventHandler(this.crozzleToolStripMenuItem_Click);
             // 
@@ -113,7 +113,7 @@
             // errorListToolStripMenuItem
             // 
             this.errorListToolStripMenuItem.Name = "errorListToolStripMenuItem";
-            this.errorListToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.errorListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.errorListToolStripMenuItem.Text = "Error List";
             this.errorListToolStripMenuItem.Click += new System.EventHandler(this.errorListToolStripMenuItem_Click);
             // 

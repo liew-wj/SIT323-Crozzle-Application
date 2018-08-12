@@ -50,30 +50,3 @@ e:\deakin university\sit323 assessment 1\old program and old files\old program\C
 e:\deakin university\sit323 assessment 1\old program and old files\old program\CrozzleApplication\obj\Debug\CrozzleApplication.exe
 e:\deakin university\sit323 assessment 1\old program and old files\old program\CrozzleApplication\obj\Debug\CrozzleApplication.pdb
 C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\Old Program\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleFileKeys.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\bin\Debug\CrozzleApplication.exe.config
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\bin\Debug\CrozzleApplication.exe
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\bin\Debug\CrozzleApplication.pdb
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\bin\Debug\ClassLibrary1.dll
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleFormApplication.csprojAssemblyReference.cache
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.AboutBox.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.ConfigurationFileItemErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.ConfigurationKeys.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CoordinateErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleFileErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleFileItemErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleFileKeys.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.CrozzleViewerForm.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.ErrorsViewer.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.KeyValueErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.OrientationErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.Properties.Resources.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.ConfigurationErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.ValidatorErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.WordDataErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.WordListErrors.resources
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleFormApplication.csproj.GenerateResource.cache
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleFormApplication.csproj.CoreCompileInputs.cache
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleFormApplication.csproj.CopyComplete
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.exe
-C:\Users\LWWJ\Documents\SIT323 Assessment 1\Old Program and Old Files\UpdatedProgram\CrozzleApplication\obj\Debug\CrozzleApplication.pdb

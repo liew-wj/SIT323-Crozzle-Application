@@ -172,6 +172,11 @@ namespace CrozzleApplication
         {
             return List.Exists(item => item.Sequence == data);
         }
+
+        public SequenceData FirstResult(String equivalent)
+        {
+            return List.Where(seq => seq.Sequence == equivalent).First();
+        }
         #endregion
     }
 }
