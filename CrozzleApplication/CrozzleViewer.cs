@@ -191,6 +191,19 @@ namespace CrozzleApplication
             SIT323Crozzle.LogFileErrors(SIT323Crozzle.ErrorsTXT);
         }
         #endregion
+        
+        #region Unit test designs
+        /// Implement unit test designs for the required validators
+        private void validatorIsBoolean1_Click(object sender, EventArgs e)
+        {
+            // ...
+        }
+
+        private void validatorIsBoolean2_Click(object sender, EventArgs e)
+        {
+            // ...
+        }
+        #endregion
 
         #region View menu event handlers
         private void errorListToolStripMenuItem_Click(object sender, EventArgs e)

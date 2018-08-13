@@ -11,6 +11,8 @@ namespace CrozzleApplication
     {
         #region constants
         private static readonly Char[] WordSeparators = new Char[] { '\n' ,'\r' }; // used to be new Char[] { ',' };
+
+        private const Boolean IS_VALIDATOR = true;
         #endregion
 
         #region properties - errors
@@ -88,69 +90,86 @@ namespace CrozzleApplication
 
             /// Split the sequence file, and extract the WordDataValidator.
             aWordList.OriginalList = fileIn.ReadToEnd().Split(WordSeparators).Where(x => x != String.Empty).ToArray();
-            aWordList.SequenceValidator = new SequenceData(aWordList.OriginalList.First());
-            aWordList.OriginalList = aWordList.OriginalList.Skip(1).ToArray(); /// existence of magic number.
 
-            // Check each field in the wordlist.
-            int totalPotentialScore = 0,
-                totalPotentialLength = 0,
-                totalPotentialAsciiSum = 0,
-                totalPotentialHashTotal = 0;
-            foreach (String potentialWord in aWordList.OriginalList)
+            /// Validate the SequenceValidator; possible case of invalid fields.
+            SequenceData seq;
+            SequenceData.TryParse(aWordList.OriginalList.First(), IS_VALIDATOR, out seq);
+            if (SequenceData.Errors.Any())
+                Errors.AddRange(SequenceData.Errors);
+            else
             {
-                SequenceData data = new SequenceData(potentialWord);
-                /// Check that the sequence is not empty.
-                if (data.Sequence.Length > 0)
+                aWordList.SequenceValidator = seq;
+                aWordList.OriginalList = aWordList.OriginalList.Skip(1).ToArray(); /// existence of magic number.
+
+                // Check each field in the wordlist.
+                int totalPotentialScore = 0,
+                    totalPotentialLength = 0,
+                    totalPotentialAsciiSum = 0,
+                    totalPotentialHashTotal = 0;
+                foreach (String potentialWord in aWordList.OriginalList)
                 {
-                    /// Check if sequence is alphabetic, then check if sequence length matches its pre-determined length.
-                    if (Regex.IsMatch(data.Sequence, aWordList.SequenceValidator.Sequence))
+                    SequenceData data;
+                    SequenceData.TryParse(potentialWord, !IS_VALIDATOR, out data);
+                    if (SequenceData.Errors.Any())
+                        Errors.AddRange(SequenceData.Errors);
+                    else
                     {
-                        if (data.ReturnLength() != data.SequenceLength)
-                            Errors.Add(String.Format(WordListErrors.NonIdenticalLengthError, data.OriginalData));
-                        else
+                        /// Check that the sequence is not empty.
+                        if (data.Sequence.Length > 0)
                         {
-                            aWordList.Add(data);
-                            totalPotentialLength += data.SequenceLength;
+                            /// Check if sequence is alphabetic, then check if sequence length matches its pre-determined length.
+                            if (Regex.IsMatch(data.Sequence, aWordList.SequenceValidator.Sequence))
+                            {
+                                if (data.ReturnLength() != data.SequenceLength)
+                                    Errors.Add(String.Format(WordListErrors.NonIdenticalLengthError, data.OriginalData));
+                                else
+                                {
+                                    aWordList.Add(data);
+                                    totalPotentialLength += data.SequenceLength;
+                                }
+                            }
+                            else
+                                Errors.Add(String.Format(WordListErrors.AlphabeticError, data.Sequence, data.OriginalData));
+
+                            totalPotentialScore += data.Score;
+
+                            /// Check if sequence's ASCII sum matches its pre-determined sum.
+                            if (data.ReturnAsciiSum() != data.AsciiSum)
+                                Errors.Add(String.Format(WordListErrors.NonIdenticalAsciiSumError, data.OriginalData));
+                            else
+                                totalPotentialAsciiSum += data.AsciiSum;
+
+                            /// Check if seqence's hash total matches its pre-determined total.
+                            if (data.ReturnHashTotal() != data.HashTotal)
+                                Errors.Add(String.Format(WordListErrors.NonIdenticalHashTotalError, data.OriginalData));
+                            else
+                                totalPotentialHashTotal += data.HashTotal;
                         }
+                        else
+                            Errors.Add(String.Format(WordListErrors.MissingWordError, data.OriginalData));
                     }
-                    else
-                        Errors.Add(String.Format(WordListErrors.AlphabeticError, data.Sequence, data.OriginalData));
 
-                    totalPotentialScore += data.Score;
 
-                    /// Check if sequence's ASCII sum matches its pre-determined sum.
-                    if (data.ReturnAsciiSum() != data.AsciiSum)
-                        Errors.Add(String.Format(WordListErrors.NonIdenticalAsciiSumError, data.OriginalData));
-                    else
-                        totalPotentialAsciiSum += data.AsciiSum;
-
-                    /// Check if seqence's hash total matches its pre-determined total.
-                    if (data.ReturnHashTotal() != data.HashTotal)
-                        Errors.Add(String.Format(WordListErrors.NonIdenticalHashTotalError, data.OriginalData));
-                    else
-                        totalPotentialHashTotal += data.HashTotal;
                 }
-                else
-                    Errors.Add(String.Format(WordListErrors.MissingWordError, data.OriginalData));
+
+                /// Check if totaled potential values match the sequence validator.
+                if (totalPotentialScore != aWordList.SequenceValidator.Score)
+                    Errors.Add(String.Format(WordListErrors.IncorrectBatchScoreError, totalPotentialScore, aWordList.SequenceValidator.Score));
+                if (totalPotentialLength != aWordList.SequenceValidator.SequenceLength)
+                    Errors.Add(String.Format(WordListErrors.IncorrectBatchLengthError, totalPotentialLength, aWordList.SequenceValidator.SequenceLength));
+                if (totalPotentialAsciiSum != aWordList.SequenceValidator.AsciiSum)
+                    Errors.Add(String.Format(WordListErrors.IncorrectBatchAsciiSumError, totalPotentialAsciiSum, aWordList.SequenceValidator.SequenceLength));
+                if (totalPotentialHashTotal != aWordList.SequenceValidator.HashTotal)
+                    Errors.Add(String.Format(WordListErrors.IncorrectBatchHashTotalError, totalPotentialHashTotal, aWordList.SequenceValidator.HashTotal));
+
+                // Check the minimmum word limit.
+                if (aWordList.Count < aConfiguration.MinimumNumberOfUniqueWords)
+                    Errors.Add(String.Format(WordListErrors.MinimumSizeError, aWordList.Count, aConfiguration.MinimumNumberOfUniqueWords));
+
+                // Check the maximum word limit.
+                if (aWordList.Count > aConfiguration.MaximumNumberOfUniqueWords)
+                    Errors.Add(String.Format(WordListErrors.MaximumSizeError, aWordList.Count, aConfiguration.MaximumNumberOfUniqueWords));
             }
-
-            /// Check if totaled potential values match the sequence validator.
-            if (totalPotentialScore != aWordList.SequenceValidator.Score)
-                Errors.Add(String.Format(WordListErrors.IncorrectBatchScoreError, totalPotentialScore, aWordList.SequenceValidator.Score));
-            if (totalPotentialLength != aWordList.SequenceValidator.SequenceLength)
-                Errors.Add(String.Format(WordListErrors.IncorrectBatchLengthError, totalPotentialLength, aWordList.SequenceValidator.SequenceLength));
-            if (totalPotentialAsciiSum != aWordList.SequenceValidator.AsciiSum)
-                Errors.Add(String.Format(WordListErrors.IncorrectBatchAsciiSumError, totalPotentialAsciiSum, aWordList.SequenceValidator.SequenceLength));
-            if (totalPotentialHashTotal != aWordList.SequenceValidator.HashTotal)
-                Errors.Add(String.Format(WordListErrors.IncorrectBatchHashTotalError, totalPotentialHashTotal, aWordList.SequenceValidator.HashTotal));
-
-            // Check the minimmum word limit.
-            if (aWordList.Count < aConfiguration.MinimumNumberOfUniqueWords)
-                Errors.Add(String.Format(WordListErrors.MinimumSizeError, aWordList.Count, aConfiguration.MinimumNumberOfUniqueWords));
-            
-            // Check the maximum word limit.
-            if (aWordList.Count > aConfiguration.MaximumNumberOfUniqueWords)
-                Errors.Add(String.Format(WordListErrors.MaximumSizeError, aWordList.Count, aConfiguration.MaximumNumberOfUniqueWords));
 
             aWordList.Valid = Errors.Count == 0;
             return (aWordList.Valid);
