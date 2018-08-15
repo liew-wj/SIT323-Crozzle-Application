@@ -41,6 +41,14 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.crozzleWebBrowser = new System.Windows.Forms.WebBrowser();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.booleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.integerValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colourCodeValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyValueValidityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sequenceDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crozzleVisualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crozzleGroupCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +57,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.validateToolStripMenuItem,
+            this.debugToolStripMenuItem,
             this.toolStripMenuItem2,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -141,6 +150,62 @@
             this.crozzleWebBrowser.Size = new System.Drawing.Size(484, 418);
             this.crozzleWebBrowser.TabIndex = 11;
             // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.booleanToolStripMenuItem,
+            this.integerValuesToolStripMenuItem,
+            this.colourCodeValuesToolStripMenuItem,
+            this.keyValueValidityToolStripMenuItem,
+            this.sequenceDuplicatesToolStripMenuItem,
+            this.crozzleVisualizationToolStripMenuItem,
+            this.crozzleGroupCountToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "Debug";
+            // 
+            // booleanToolStripMenuItem
+            // 
+            this.booleanToolStripMenuItem.Name = "booleanToolStripMenuItem";
+            this.booleanToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.booleanToolStripMenuItem.Text = "Boolean values";
+            // 
+            // integerValuesToolStripMenuItem
+            // 
+            this.integerValuesToolStripMenuItem.Name = "integerValuesToolStripMenuItem";
+            this.integerValuesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.integerValuesToolStripMenuItem.Text = "Integer values";
+            // 
+            // colourCodeValuesToolStripMenuItem
+            // 
+            this.colourCodeValuesToolStripMenuItem.Name = "colourCodeValuesToolStripMenuItem";
+            this.colourCodeValuesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.colourCodeValuesToolStripMenuItem.Text = "Colour code values";
+            // 
+            // keyValueValidityToolStripMenuItem
+            // 
+            this.keyValueValidityToolStripMenuItem.Name = "keyValueValidityToolStripMenuItem";
+            this.keyValueValidityToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.keyValueValidityToolStripMenuItem.Text = "KeyValue validity";
+            // 
+            // sequenceDuplicatesToolStripMenuItem
+            // 
+            this.sequenceDuplicatesToolStripMenuItem.Name = "sequenceDuplicatesToolStripMenuItem";
+            this.sequenceDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.sequenceDuplicatesToolStripMenuItem.Text = "Sequence duplicates";
+            // 
+            // crozzleVisualizationToolStripMenuItem
+            // 
+            this.crozzleVisualizationToolStripMenuItem.Name = "crozzleVisualizationToolStripMenuItem";
+            this.crozzleVisualizationToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.crozzleVisualizationToolStripMenuItem.Text = "Crozzle visualization";
+            // 
+            // crozzleGroupCountToolStripMenuItem
+            // 
+            this.crozzleGroupCountToolStripMenuItem.Name = "crozzleGroupCountToolStripMenuItem";
+            this.crozzleGroupCountToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.crozzleGroupCountToolStripMenuItem.Text = "Crozzle group count";
+            // 
             // CrozzleViewerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +239,14 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem errorListToolStripMenuItem;
         private System.Windows.Forms.WebBrowser crozzleWebBrowser;
+        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem booleanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem integerValuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colourCodeValuesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem keyValueValidityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sequenceDuplicatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crozzleVisualizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crozzleGroupCountToolStripMenuItem;
     }
 }
 
