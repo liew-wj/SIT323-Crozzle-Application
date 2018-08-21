@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CrozzleApplication")]
-[assembly: AssemblyDescription("SIT323 Practical Software Development, Assessment Task 1, Trimester 1, 2017")]
+[assembly: AssemblyTitle("Crozzle Application 2018")]
+[assembly: AssemblyDescription("SIT323 Practical Software Development, Assessment Task 1, Trimester 2, 2018. Branch by ERIC REN, LIEW WEI JIE")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Deakin University")]
 [assembly: AssemblyProduct("CrozzleApplication")]

@@ -4,6 +4,7 @@ using System.IO;
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace CrozzleApplication
 {
@@ -13,6 +14,8 @@ namespace CrozzleApplication
         private Crozzle SIT323Crozzle { get; set; }
         private ErrorsViewer ErrorListViewer { get; set; }
         private AboutBox ApplicationAboutBox { get; set; }
+
+        private const String FileDialogFilter = "Crozzle File|*.czl"; /// ASS1 - Set the file dialog to only open crozzle (.czl) files.
         #endregion
 
         #region constructors
@@ -43,7 +46,7 @@ namespace CrozzleApplication
             ErrorListViewer.WebBrowser.DocumentText = "";
 
             // Process crozzle file.
-            openFileDialog1.Filter = "Crozzle File|*.czl"; /// ASS1 - Set the file dialog to only open crozzle (.czl) files.
+            openFileDialog1.Filter = FileDialogFilter;
             result = openFileDialog1.ShowDialog();
 
             // Assessment Task 1 - Check
@@ -192,14 +195,54 @@ namespace CrozzleApplication
         }
         #endregion
         
-        #region Unit test designs
+        #region Debug menu event handlers
         /// Implement unit test designs for the required validators
-        private void validatorIsBoolean1_Click(object sender, EventArgs e)
+        private void debugBoolean_Click(object sender, EventArgs e)
         {
-            // ...
+            using (OpenFileDialog debugDialog = new OpenFileDialog())
+            {
+                if (debugDialog.ShowDialog() == DialogResult.OK)
+                {
+                    StreamReader debugStream = new StreamReader(debugDialog.FileName);
+                    String ext = Path.GetExtension(debugDialog.FileName);
+
+                    if (new String[] { ".czl", ".seq" }.Contains(ext))
+                    {
+                        String line = debugStream.ReadToEnd();
+                        Debug.Assert(line.ToLower().Contains(Boolean.TrueString.ToLower()) == false, 
+                            String.Format(DebugWarnings.SubStringExistsWarning, debugDialog.FileName, Boolean.TrueString));
+
+                        Debug.Assert(line.ToLower().Contains(Boolean.FalseString.ToLower()) == false, 
+                            String.Format(DebugWarnings.SubStringExistsWarning, debugDialog.FileName, Boolean.FalseString));
+                    }
+                    else
+                    {
+                        String debugLine;
+                        int count = 0;
+                        while (!debugStream.EndOfStream)
+                        {
+                            debugLine = debugStream.ReadLine();
+                            if (!String.IsNullOrEmpty(debugLine))
+                                if (debugLine.ToLower().Contains(Boolean.TrueString.ToLower()) || debugLine.ToLower().Contains(Boolean.FalseString.ToLower()))
+                                {
+                                    Boolean funcResult, paramResult;
+                                    funcResult = Validator.IsBoolean(debugLine.Split(new char[] { '=' }, 2).Last(), out paramResult);
+
+                                    Debug.Assert(funcResult == true, String.Format(DebugWarnings.UnparseableBooleanWarning, debugLine));
+                                    Debug.Assert(paramResult == funcResult, String.Format(DebugWarnings.ConflictingBooleanWarning, funcResult, paramResult));
+
+                                    count++;
+                                }
+                        }
+                        Debug.Assert(count == 1, DebugWarnings.ExcessBooleanWarning, debugDialog.FileName);
+                    }
+                }
+            }
+
+            MessageBox.Show("Debug completed.");
         }
 
-        private void validatorIsBoolean2_Click(object sender, EventArgs e)
+        private void debugHexCode_Click(object sender, EventArgs e)
         {
             // ...
         }
