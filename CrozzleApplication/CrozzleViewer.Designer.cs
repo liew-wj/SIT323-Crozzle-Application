@@ -35,14 +35,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.validateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crozzleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.booleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.integerValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colourCodeValuesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keyValueValidityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sequenceDuplicatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crozzleVisualizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crozzleGroupCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.errorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +49,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.validateToolStripMenuItem,
-            this.debugToolStripMenuItem,
             this.toolStripMenuItem2,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -111,69 +102,6 @@
             this.crozzleToolStripMenuItem.Text = "Crozzle";
             this.crozzleToolStripMenuItem.Click += new System.EventHandler(this.crozzleToolStripMenuItem_Click);
             // 
-            // debugToolStripMenuItem
-            // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.booleanToolStripMenuItem,
-            this.integerValuesToolStripMenuItem,
-            this.colourCodeValuesToolStripMenuItem,
-            this.keyValueValidityToolStripMenuItem,
-            this.sequenceDuplicatesToolStripMenuItem,
-            this.crozzleVisualizationToolStripMenuItem,
-            this.crozzleGroupCountToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.debugToolStripMenuItem.Text = "Debug";
-            // 
-            // booleanToolStripMenuItem
-            // 
-            this.booleanToolStripMenuItem.Name = "booleanToolStripMenuItem";
-            this.booleanToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.booleanToolStripMenuItem.Text = "Expect Boolean in file";
-            this.booleanToolStripMenuItem.Click += new System.EventHandler(this.debugBoolean_Click);
-            // 
-            // integerValuesToolStripMenuItem
-            // 
-            this.integerValuesToolStripMenuItem.Enabled = false;
-            this.integerValuesToolStripMenuItem.Name = "integerValuesToolStripMenuItem";
-            this.integerValuesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.integerValuesToolStripMenuItem.Text = "Expect Integer in file";
-            // 
-            // colourCodeValuesToolStripMenuItem
-            // 
-            this.colourCodeValuesToolStripMenuItem.Name = "colourCodeValuesToolStripMenuItem";
-            this.colourCodeValuesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.colourCodeValuesToolStripMenuItem.Text = "Expect Hex Code in file";
-            this.colourCodeValuesToolStripMenuItem.Click += new System.EventHandler(this.debugHexCode_Click);
-            // 
-            // keyValueValidityToolStripMenuItem
-            // 
-            this.keyValueValidityToolStripMenuItem.Enabled = false;
-            this.keyValueValidityToolStripMenuItem.Name = "keyValueValidityToolStripMenuItem";
-            this.keyValueValidityToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.keyValueValidityToolStripMenuItem.Text = "KeyValue validity";
-            // 
-            // sequenceDuplicatesToolStripMenuItem
-            // 
-            this.sequenceDuplicatesToolStripMenuItem.Enabled = false;
-            this.sequenceDuplicatesToolStripMenuItem.Name = "sequenceDuplicatesToolStripMenuItem";
-            this.sequenceDuplicatesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.sequenceDuplicatesToolStripMenuItem.Text = "Sequence duplicates";
-            // 
-            // crozzleVisualizationToolStripMenuItem
-            // 
-            this.crozzleVisualizationToolStripMenuItem.Enabled = false;
-            this.crozzleVisualizationToolStripMenuItem.Name = "crozzleVisualizationToolStripMenuItem";
-            this.crozzleVisualizationToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.crozzleVisualizationToolStripMenuItem.Text = "Crozzle visualization";
-            // 
-            // crozzleGroupCountToolStripMenuItem
-            // 
-            this.crozzleGroupCountToolStripMenuItem.Enabled = false;
-            this.crozzleGroupCountToolStripMenuItem.Name = "crozzleGroupCountToolStripMenuItem";
-            this.crozzleGroupCountToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.crozzleGroupCountToolStripMenuItem.Text = "Crozzle group count";
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -185,7 +113,7 @@
             // errorListToolStripMenuItem
             // 
             this.errorListToolStripMenuItem.Name = "errorListToolStripMenuItem";
-            this.errorListToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.errorListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.errorListToolStripMenuItem.Text = "Error List";
             this.errorListToolStripMenuItem.Click += new System.EventHandler(this.errorListToolStripMenuItem_Click);
             // 
@@ -246,14 +174,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem errorListToolStripMenuItem;
         private System.Windows.Forms.WebBrowser crozzleWebBrowser;
-        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem booleanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem integerValuesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem colourCodeValuesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem keyValueValidityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sequenceDuplicatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crozzleVisualizationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crozzleGroupCountToolStripMenuItem;
     }
 }
 

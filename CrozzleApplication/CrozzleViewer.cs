@@ -194,59 +194,6 @@ namespace CrozzleApplication
             SIT323Crozzle.LogFileErrors(SIT323Crozzle.ErrorsTXT);
         }
         #endregion
-        
-        #region Debug menu event handlers
-        /// Implement unit test designs for the required validators
-        private void debugBoolean_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog debugDialog = new OpenFileDialog())
-            {
-                if (debugDialog.ShowDialog() == DialogResult.OK)
-                {
-                    StreamReader debugStream = new StreamReader(debugDialog.FileName);
-                    String ext = Path.GetExtension(debugDialog.FileName);
-
-                    if (new String[] { ".czl", ".seq" }.Contains(ext))
-                    {
-                        String line = debugStream.ReadToEnd();
-                        Debug.Assert(line.ToLower().Contains(Boolean.TrueString.ToLower()) == false, 
-                            String.Format(DebugWarnings.SubStringExistsWarning, debugDialog.FileName, Boolean.TrueString));
-
-                        Debug.Assert(line.ToLower().Contains(Boolean.FalseString.ToLower()) == false, 
-                            String.Format(DebugWarnings.SubStringExistsWarning, debugDialog.FileName, Boolean.FalseString));
-                    }
-                    else
-                    {
-                        String debugLine;
-                        int count = 0;
-                        while (!debugStream.EndOfStream)
-                        {
-                            debugLine = debugStream.ReadLine();
-                            if (!String.IsNullOrEmpty(debugLine))
-                                if (debugLine.ToLower().Contains(Boolean.TrueString.ToLower()) || debugLine.ToLower().Contains(Boolean.FalseString.ToLower()))
-                                {
-                                    Boolean funcResult, paramResult;
-                                    funcResult = Validator.IsBoolean(debugLine.Split(new char[] { '=' }, 2).Last(), out paramResult);
-
-                                    Debug.Assert(funcResult == true, String.Format(DebugWarnings.UnparseableBooleanWarning, debugLine));
-                                    Debug.Assert(paramResult == funcResult, String.Format(DebugWarnings.ConflictingBooleanWarning, funcResult, paramResult));
-
-                                    count++;
-                                }
-                        }
-                        Debug.Assert(count == 1, DebugWarnings.ExcessBooleanWarning, debugDialog.FileName);
-                    }
-                }
-            }
-
-            MessageBox.Show("Debug completed.");
-        }
-
-        private void debugHexCode_Click(object sender, EventArgs e)
-        {
-            // ...
-        }
-        #endregion
 
         #region View menu event handlers
         private void errorListToolStripMenuItem_Click(object sender, EventArgs e)

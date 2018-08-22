@@ -107,11 +107,6 @@
     <Compile Include="CrozzleViewer.Designer.cs">
       <DependentUpon>CrozzleViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="DebugWarnings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DebugWarnings.resx</DependentUpon>
-    </Compile>
     <Compile Include="ErrorsViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,10 +187,6 @@
     <EmbeddedResource Include="CrozzleViewer.resx">
       <DependentUpon>CrozzleViewer.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DebugWarnings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DebugWarnings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorsViewer.resx">
       <DependentUpon>ErrorsViewer.cs</DependentUpon>
