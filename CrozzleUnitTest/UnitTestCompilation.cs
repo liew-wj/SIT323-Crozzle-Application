@@ -8,132 +8,137 @@ namespace CrozzleUnitTest
     [TestClass]
     public class UnitTestCompilation
     {
+        #region Scenario 1
         [TestMethod]
-        public void Validator_IsBoolean_FalseResult()
+        public void Scenario1Case1()
         {
-            /// Arrange.
             String aString = "false";
             Boolean aBoolean = true;
 
-            /// Act.
-            Validator.IsBoolean(aString, out aBoolean);
-
-            /// Assert.
-            Assert.IsFalse(aBoolean);
+            Assert.IsTrue(Validator.IsBoolean(aString, out aBoolean));
         }
 
         [TestMethod]
-        public void Validator_IsInt32_TrueResult()
+        public void Scenario1Case2()
         {
-            /// Arrange.
+            String aString = "true";
+            Boolean aBoolean = true;
+
+            Assert.IsTrue(Validator.IsBoolean(aString, out aBoolean));
+        }
+        #endregion
+
+        #region Scenario 2
+        [TestMethod]
+        public void Scenario2Case1()
+        {
             String aString = "500";
-            Int32 aInteger = -1;
-            Boolean aBoolean = true;
+            Int32 anInteger = -1;
 
-            /// Act.
-            aBoolean = Validator.IsInt32(aString, out aInteger);
-
-            /// Assert.
-            Assert.IsTrue(aBoolean);
+            Assert.IsTrue(Validator.IsInt32(aString, out anInteger));
         }
 
         [TestMethod]
-        public void Validator_IsHexColourCode_FalseResult()
+        public void Scenario2Case2()
         {
-            /// Arrange
-            String aString = "#4EF"; /// This is a shorthand hex code.
-            Boolean aBoolean = true;
+            String aString = "498";
+            Int32 anInteger = -1;
 
-            /// Act.
-            aBoolean = Validator.IsHexColourCode(aString);
-
-            /// Assert.
-            Assert.IsFalse(aBoolean);
+            Assert.IsTrue(Validator.IsInt32(aString, out anInteger));
         }
 
         [TestMethod]
-        public void KeyValue_TryParse_TrueResult()
+        public void Scenario2Case3()
         {
-            /// Arrange
-            String aOriginalKeyValueData = "INVALID-CROZZLE-SCORE=\"INVALID CROZZLE\"",
-                aKeyPattern = "INVALID-CROZZLE-SCORE";
-            Boolean aBoolean = true;
+            String aString = "499.5";
+            Int32 anInteger = -1;
 
-            KeyValue aKeyValue = new KeyValue(null)
-            {
-                OriginalKeyValue = "INVALID-CROZZLE-SCORE=\"INVALID CROZZLE\"",
-                Valid = true,
-                Key = "INVALID-CROZZLE-SCORE",
-                Value = "\"INVALID CROZZLE\""
-            },
-            bKeyValue = null;
+            Assert.IsFalse(Validator.IsInt32(aString, out anInteger));
+        }
+        #endregion
 
-            /// Act.
-            KeyValue.TryParse(aOriginalKeyValueData, aKeyPattern, out bKeyValue);
-            if (aKeyValue.OriginalKeyValue != bKeyValue.OriginalKeyValue ||
-                aKeyValue.Key != bKeyValue.Key ||
-                aKeyValue.Valid != bKeyValue.Valid ||
-                aKeyValue.Value != bKeyValue.Value)
-                aBoolean = false;
+        #region Scenario 3
+        [TestMethod]
+        public void Scenario3Case1()
+        {
+            String hexColour = "000000";
 
-            /// Assert.
-            Assert.IsTrue(aBoolean);
+            Assert.IsFalse(Validator.IsHexColourCode(hexColour));
         }
 
         [TestMethod]
-        public void Crozzle_Score_FalseResult()
+        public void Scenario3Case2()
         {
+            String hexColour = "#56ab7f";
+
+            Assert.IsTrue(Validator.IsHexColourCode(hexColour));
         }
 
         [TestMethod]
-        public void CrozzleSequence_CheckDuplicate_TrueResult()
+        public void Scenario3Case3()
         {
-            // ...
+            String hexColour = "#4EF";
+
+            Assert.IsTrue(Validator.IsHexColourCode(hexColour));
+        }
+        #endregion
+
+        #region Scenario 4
+        [TestMethod]
+        public void Scenario4Case1()
+        {
+            String originalKeyValueData = "INVALID-CROZZLE-SCORE=\"INVALID CROZZLE\"",
+                keyPattern = "INVALID-CROZZLE-SCORE";
+            KeyValue aKeyValue = null;
+
+            Assert.IsTrue(KeyValue.TryParse(originalKeyValueData, keyPattern, out aKeyValue));
         }
 
         [TestMethod]
-        public void Crozzle_Validate_FalseResult()
+        public void Scenario4Case2()
         {
-            // ...
+            String originalKeyValueData = "INVALID-CROZZLE-SCORE=\"INVALID CROZZLE\"",
+                keyPattern = "VALID-CROZZLE-SCORE";
+            KeyValue aKeyValue = null;
+
+            Assert.IsFalse(KeyValue.TryParse(originalKeyValueData, keyPattern, out aKeyValue));
         }
 
         [TestMethod]
-        public void Crozzle_ToStringHTML_TrueResult()
+        public void Scenario4Case3()
         {
-            // ...
+            String originalKeyValueData = "VALID-CROZZLE-SCORE=\"INVALID CROZZLE\"",
+                keyPattern = "VALID-CROZZLE-SCORE";
+            KeyValue aKeyValue = null;
+
+            Assert.IsTrue(KeyValue.TryParse(originalKeyValueData, keyPattern, out aKeyValue));
+        }
+        #endregion
+
+        #region Scenario 6
+        [TestMethod]
+        public void Scenario6Case1()
+        {
+
         }
 
         [TestMethod]
-        public void CrozzleMap_GroupCount_FalseResult()
+        public void Scenario6Case2()
         {
-            // ...
+
         }
 
         [TestMethod]
-        public void Configuration_TryParse_TrueResult()
+        public void Scenario6Case3()
         {
-            /// Arrange.
-            Configuration aConfig;
-            String path = @"..\..\Resources\Test1.cfg";
-            Boolean result;
 
-            /// Act.
-            result = Configuration.TryParse(path, out aConfig);
-
-            /// Assert.
-            Assert.IsTrue(result);
         }
+        #endregion
 
-        [TestMethod]
-        public void Wordlist_TryParse_FalseResult()
-        {
-            // ...
-        }
+        #region Scenario 8
+        #endregion
 
-        [TestMethod]
-        public void Crozzle_TryParse_TrueResult()
-        {
-            // ...
-        }
+        #region Scenario 9
+        #endregion
     }
 }

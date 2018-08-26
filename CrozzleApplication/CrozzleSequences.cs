@@ -67,22 +67,7 @@ namespace CrozzleApplication
                     {
                         // Set column values.
                         int columnNumber = row.IndexOf(sequence, columnIndex) + 1;
-
-                        //////// check for duplicate word
-                        //////WordData duplicate = Sequences.Find(x => x.Letters.Equals(sequence));
-                        //////if (duplicate != null)
-                        //////    ErrorMessages.Add("\"" + sequence + "\" at (" + rowNumber + ", " + columnNumber + ") already exists in the crozzle at (" + duplicate.Location.Row + ", " + duplicate.Location.Column + ")");
-
-
-                        //////// Check that duplicate words are within limits.
-                        //////List<WordData> duplicates = Sequences.FindAll(x => x.Letters.Equals(sequence));
-                        //////if (duplicates.Count < Configuration.MinimumNumberOfTheSameWord)
-                        //////    ErrorMessages.Add("\"" + sequence + "\" at (" + rowNumber + ", " + columnNumber + ") exists in the crozzle " + duplicates.Count +
-                        //////        " times, which is more than the limit of " + Configuration.MinimumNumberOfTheSameWord);
-                        //////if (duplicates.Count > Configuration.MaximumNumberOfTheSameWord)
-                        //////    ErrorMessages.Add("\"" + sequence + "\" at (" + rowNumber + ", " + columnNumber + ") exists in the crozzle " + duplicates.Count +
-                        //////        " times, which is more than the limit of " + Configuration.MaximumNumberOfTheSameWord);
-
+                        
                         // Collect data about the word, and 
                         // update the index for the next substring search.
                         WordData word = new WordData(WordData.OrientationRow, rowNumber, row.IndexOf(sequence, columnIndex) + 1, sequence);
@@ -121,15 +106,6 @@ namespace CrozzleApplication
                     {
                         // Set row values.
                         int rowNumber = column.IndexOf(sequence, rowIndex) + 1;
-
-                        ////////// Check that duplicate words are within limits.
-                        ////////List<WordData> duplicates = Sequences.FindAll(x => x.Letters.Equals(sequence));
-                        ////////if (duplicates.Count < Configuration.MinimumNumberOfTheSameWord)
-                        ////////    ErrorMessages.Add("\"" + sequence + "\" at (" + rowNumber + ", " + columnNumber + ") exists in the crozzle " + duplicates.Count + 
-                        ////////        " times, which is more than the limit of " + Configuration.MinimumNumberOfTheSameWord);
-                        ////////if (duplicates.Count > Configuration.MaximumNumberOfTheSameWord)
-                        ////////    ErrorMessages.Add("\"" + sequence + "\" at (" + rowNumber + ", " + columnNumber + ") exists in the crozzle " + duplicates.Count +
-                        ////////        " times, which is more than the limit of " + Configuration.MaximumNumberOfTheSameWord);
 
                         // Collect data about the word, and 
                         // update the index for the next substring search.
