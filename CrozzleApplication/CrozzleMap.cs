@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CrozzleApplication
 {
-    class CrozzleMap
+    public class CrozzleMap
     {
         #region constants
         const int extraRows = 2;

@@ -177,12 +177,13 @@ namespace CrozzleApplication
             foreach (String letters in uniqueSequences)
             {
                 List<WordData> duplicates = Sequences.FindAll(x => x.Letters.Equals(letters));
+                duplicates.RemoveAt(0); // A duplicate does not include the word itself.
 
-                if (duplicates.Count > 1)
+                if (duplicates.Any())
                 {
-                    if (duplicates.Count < Configuration.MinimumNumberOfTheSameWord || duplicates.Count > Configuration.MaximumNumberOfTheSameWord)
+                    if (duplicates.Count < lowerLimit || duplicates.Count > upperLimit)
                         ErrorMessages.Add(String.Format(CrozzleErrors.DuplicateWordCountError, 
-                            letters, duplicates.Count, Configuration.MinimumNumberOfTheSameWord, Configuration.MaximumNumberOfTheSameWord));
+                            letters, duplicates.Count, lowerLimit, upperLimit));
                 }
             }
         }
